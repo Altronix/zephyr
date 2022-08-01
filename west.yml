@@ -62,7 +62,7 @@ manifest:
       groups:
         - hal
     - name: hal_espressif
-      revision: 42ce90fa07cb696ebee65441f9f7d468032575d7
+      revision: 3f05902c85ecc43c790f2f0239483cc26eb4a8e2
       path: modules/hal/espressif
       west-commands: west/west-commands.yml
       groups:
@@ -83,7 +83,7 @@ manifest:
       groups:
         - hal
     - name: hal_nordic
-      revision: d892b442b0c74a33ffbbff0ed2a2c2122b4d3925
+      revision: f5024df56c57794ad964956a2e163bd17f7b3b40
       path: modules/hal/nordic
       groups:
         - hal
@@ -135,12 +135,12 @@ manifest:
       groups:
         - hal
     - name: hal_ti
-      revision: b6ca1ace9024afa072c0ff8294d04b8d9fe4aede
+      revision: 29af528900d03af02a17b4b7f4fc93f19a81da2a
       path: modules/hal/ti
       groups:
         - hal
     - name: hal_xtensa
-      revision: c7fe0872bc3c910068527f0fe841bd4030874e0e
+      revision: 63f655362423aa49507da7977a2d37142e8debeb
       path: modules/hal/xtensa
       groups:
         - hal
@@ -172,7 +172,7 @@ manifest:
       groups:
         - crypto
     - name: mcuboot
-      revision: 3b791288bb037f8d64bd93ffac89ab72d62111bd
+      revision: c216d34bd57d04946263bfdd8e3b084ac41058e4
       path: bootloader/mcuboot
     - name: mipi-sys-t
       path: modules/debug/mipi-sys-t
@@ -244,7 +244,7 @@ manifest:
       path: modules/lib/zcbor
     - name: zscilib
       path: modules/lib/zscilib
-      revision: fc979a8dcb74169c69b02835927bff8f070d6325
+      revision: a54986aa98db4082ac56b582843bb5b5435208a6
 
   group-filter:
     - -ci

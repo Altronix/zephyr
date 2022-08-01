@@ -10,7 +10,7 @@
 #include <soc.h>
 #include <ace_v1x-regs.h>
 #include <ace-ipc-regs.h>
-#include <cavs-mem.h>
+#include <adsp_memory.h>
 
 #define CORE_POWER_CHECK_NUM 32
 #define CORE_POWER_CHECK_DELAY 256
@@ -76,6 +76,11 @@ void soc_mp_startup(uint32_t cpu)
 	/* Prevent idle from powering us off */
 	DFDSPBRCP.bootctl[cpu].bctl |=
 		DFDSPBRCP_BCTL_WAITIPCG | DFDSPBRCP_BCTL_WAITIPPG;
+	/* checking if WDT was stopped during D3 transition */
+	if (DFDSPBRCP.bootctl[cpu].wdtcs & DFDSPBRCP_WDT_RESUME) {
+		DFDSPBRCP.bootctl[cpu].wdtcs = DFDSPBRCP_WDT_RESUME;
+		/* TODO: delete this IF when FW starts using imr restore vector */
+	}
 }
 
 void arch_sched_ipi(void)
