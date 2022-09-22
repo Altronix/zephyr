@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#include <zephyr/zephyr.h>
+#include <zephyr/kernel.h>
 #include <zephyr/wait_q.h>
 #include <zephyr/net/socket.h>
 #include <zephyr/sys/fdtable.h>

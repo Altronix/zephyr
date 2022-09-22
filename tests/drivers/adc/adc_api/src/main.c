@@ -6,8 +6,8 @@
  */
 
 
-#include <zephyr/zephyr.h>
-#include <ztest.h>
+#include <zephyr/kernel.h>
+#include <zephyr/ztest.h>
 
 extern const struct device *get_adc_device(void);
 extern struct k_poll_signal async_sig;

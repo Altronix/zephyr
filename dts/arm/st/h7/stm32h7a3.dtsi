@@ -55,7 +55,6 @@
 			#address-cells = <1>;
 			#size-cells = <0>;
 			status = "disabled";
-			label= "OCTOSPI1";
 		};
 
 		octospi2: octospi@5200a000 {
@@ -67,7 +66,12 @@
 			#address-cells = <1>;
 			#size-cells = <0>;
 			status = "disabled";
-			label= "OCTOSPI2";
+		};
+
+		rng: rng@48021800 {
+			nist-config = <0xf00d00>;
+			health-test-magic = <0x17590abc>;
+			health-test-config = <0x72ac>;
 		};
 	};
 
@@ -127,5 +131,12 @@
 	otghs_fs_phy: otghs_fs_phy {
 		compatible = "usb-nop-xceiv";
 		#phy-cells = <0>;
+	};
+
+	die_temp: dietemp {
+		ts-cal1-addr = <0x08FFF814>;
+		ts-cal2-addr = <0x08FFF818>;
+		io-channels = <&adc2 18>;
+		ts-cal2-temp = <130>;
 	};
 };

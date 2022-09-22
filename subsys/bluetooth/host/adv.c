@@ -269,11 +269,11 @@ void bt_le_ext_adv_foreach(void (*func)(struct bt_le_ext_adv *adv, void *data),
 #endif /* defined(CONFIG_BT_EXT_ADV) */
 }
 
-static struct bt_le_ext_adv *adv_new_legacy(void)
+static struct bt_le_ext_adv *adv_get_legacy(void)
 {
 #if defined(CONFIG_BT_EXT_ADV)
 	if (bt_dev.adv) {
-		return NULL;
+		return bt_dev.adv;
 	}
 
 	bt_dev.adv = adv_new();
@@ -351,7 +351,7 @@ int bt_le_adv_set_enable_ext(struct bt_le_ext_adv *adv,
 	net_buf_add_u8(buf, 1);
 
 	net_buf_add_u8(buf, adv->handle);
-	net_buf_add_le16(buf, param ? sys_cpu_to_le16(param->timeout) : 0);
+	net_buf_add_le16(buf, param ? param->timeout : 0);
 	net_buf_add_u8(buf, param ? param->num_events : 0);
 
 	bt_hci_cmd_state_set_init(buf, &state, adv->flags, BT_ADV_ENABLED, enable);
@@ -1335,7 +1335,7 @@ int bt_le_adv_start(const struct bt_le_adv_param *param,
 		    const struct bt_data *ad, size_t ad_len,
 		    const struct bt_data *sd, size_t sd_len)
 {
-	struct bt_le_ext_adv *adv = adv_new_legacy();
+	struct bt_le_ext_adv *adv = adv_get_legacy();
 	int err;
 
 	if (!adv) {

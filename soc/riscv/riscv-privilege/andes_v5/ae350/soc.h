@@ -13,14 +13,7 @@
 
 #include <soc_common.h>
 
-/* Machine timer memory-mapped registers */
-#define RISCV_MTIME_BASE             0xE6000000
-#define RISCV_MTIMECMP_BASE          0xE6000008
-
 /* Include CSRs available for Andes V5 SoCs */
 #include "soc_v5.h"
-
-/* Include platform peripherals */
-#include "smu.h"
 
 #endif /* __RISCV_ANDES_AE350_SOC_H_ */
